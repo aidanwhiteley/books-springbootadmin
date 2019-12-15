@@ -1,0 +1,55 @@
+spring:
+  application:
+    name: BooksSpringBootAdmin
+
+  security:
+    user:
+      name: ${SPRING_BOOT_ADMIN_USERNAME}
+      password: ${SPRING_BOOT_ADMIN_PASSWORD}
+
+  boot:
+    admin:
+      notify:
+        mail:
+          enabled: false
+      #discovery:
+      #  ignored-services: BooksSpringBootAdmin
+
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false    # RibbonLoadBalancerClient deprecated. This setting uses BlockingLoadBalancerClient
+
+server:
+  port: 8888
+
+jwt:
+  token:
+    actuator:
+      user: ${JAVA_BOOKS_ACTUATOR_ONLY_JWT_TOKEN}
+
+eureka:
+  instance:
+    hostname: localhost
+    metadata-map:
+      user.name: ${spring.security.user.name}
+      user.password: ${spring.security.user.password}
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://${SERVICE_REGISTRY}:8761/eureka/
+
+management:
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        # Exposing only read only items and not large data amounts - so no heapdump, threaddump or shutdown. No project use of flyway, integrationgraph, liquibase, prometheus
+        include: auditevents, beans, caches, conditions, configprops, env, health, httptrace, info, jolokia, logfile, loggers, metrics, mappings, scheduledtasks, sessions
+  info:
+    git:
+      mode: full
+  health:
+    mail:
+      enabled: false

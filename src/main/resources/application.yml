@@ -1,0 +1,55 @@
+spring:
+  application:
+    name: BooksSpringBootAdmin
+
+  security:
+    user:
+      name: testuser
+      password: testpass
+
+  boot:
+    admin:
+      notify:
+        mail:
+          enabled: false
+      #discovery:
+      #  ignored-services: BooksSpringBootAdmin
+
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false    # RibbonLoadBalancerClient deprecated. This setting uses BlockingLoadBalancerClient
+
+server:
+  port: 8888
+
+jwt:
+  token:
+    actuator:
+      user: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJMT0NBTF9BQ1RVQVRPUl9VU0VSIiwiaXNzIjoiQ2xvdWR5Qm9va0NsdWIiLCJwcm92aWRlciI6IkxPQ0FMIiwibmFtZSI6IkFjdHVhdG9yIFVzZXIiLCJyb2xlcyI6IjIiLCJpYXQiOjE1NTI0MDA5MTcsImV4cCI6MTU4MzkzNjkxN30.82WCHRGRCfRpZNoo33xIyjIS8GphDo47qcfsWcSynxRN7X-n-Sq-aK7s9tU-qTl88jWGd3VLpRbne1W_85dZfg
+
+eureka:
+  instance:
+    hostname: localhost
+    metadata-map:
+      user.name: ${spring.security.user.name}
+      user.password: ${spring.security.user.password}
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+management:
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        # Exposing only read only items and not large data amounts - so no heapdump, threaddump or shutdown. No project use of flyway, integrationgraph, liquibase, prometheus
+        include: auditevents, beans, caches, conditions, configprops, env, health, httptrace, info, jolokia, logfile, loggers, metrics, mappings, scheduledtasks, sessions
+  info:
+    git:
+      mode: full
+  health:
+    mail:
+      enabled: false
