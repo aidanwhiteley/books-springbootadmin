@@ -30,7 +30,7 @@ jwt:
 
 eureka:
   instance:
-    hostname: localhost
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
     metadata-map:
       user.name: ${spring.security.user.name}
       user.password: ${spring.security.user.password}
