@@ -89,12 +89,15 @@
 				<artifactId>jib-maven-plugin</artifactId>
 				<version>2.5.2</version>
 				<configuration>
+					<from>
+						<image>gcr.io/distroless/java:latest</image>
+					</from>
 					<to>
-						<image>aidanwhiteley/books-spring-boot-admin</image>
+						<image>aidanwhiteley/books-api-java</image>
 					</to>
 					<container>
 						<ports>
-							<port>8888</port>
+							<port>8080</port>
 						</ports>
 					</container>
 				</configuration>
