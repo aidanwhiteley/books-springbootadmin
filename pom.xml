@@ -93,11 +93,11 @@
 						<image>gcr.io/distroless/java:latest</image>
 					</from>
 					<to>
-						<image>aidanwhiteley/books-api-java</image>
+						<image>aidanwhiteley/books-spring-boot-admin</image>
 					</to>
 					<container>
 						<ports>
-							<port>8080</port>
+							<port>8888</port>
 						</ports>
 					</container>
 				</configuration>
