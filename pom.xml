@@ -5,18 +5,18 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.4.5</version>
+		<version>2.5.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.aidanwhiteley</groupId>
 	<artifactId>springbootadmin</artifactId>
-	<version>0.0.5-RELEASE</version>
+	<version>0.0.6-RELEASE</version>
 	<name>springbootadmin</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
-		<spring-boot-admin.version>2.4.1</spring-boot-admin.version>
-		<spring-cloud.version>2020.0.2</spring-cloud.version>
+		<spring-boot-admin.version>2.4.3</spring-boot-admin.version>
+		<spring-cloud.version>2020.0.3</spring-cloud.version>
 	</properties>
 
 	<dependencies>
@@ -106,7 +106,7 @@
 			<plugin>
 				<groupId>com.google.cloud.tools</groupId>
 				<artifactId>jib-maven-plugin</artifactId>
-				<version>3.0.0</version>
+				<version>3.1.2</version>
 				<configuration>
 					<from>
 						<image>gcr.io/distroless/java:11</image>
@@ -114,7 +114,7 @@
 					<to>
 						<image>aidanwhiteley/books-spring-boot-admin</image>
 						<tags>
-							<tag>0.0.5-RELEASE</tag>
+							<tag>0.0.6-RELEASE</tag>
 						</tags>
 					</to>
 					<container>
