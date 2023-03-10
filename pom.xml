@@ -15,7 +15,7 @@
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
-		<spring-boot-admin.version>2.5.5</spring-boot-admin.version>
+		<spring-boot-admin.version>3.0.1</spring-boot-admin.version>
 		<spring-cloud.version>2021.0.0</spring-cloud.version>
 	</properties>
 
